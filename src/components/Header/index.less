@@ -1,4 +1,6 @@
+@import './../../style/default.less';
 .header{
+    background-color: @colorM;
     .header-top{
         height: 60px;
         line-height: 60px;//让文字垂直方向居中
@@ -6,6 +8,7 @@
         text-align: right;
         a{
             margin-left: 20px;
+            color:#f9c700;
         }
     }
     .breadcrumb{
@@ -15,6 +18,16 @@
        border-top: 1px solid #f9c700;
        .breadcrumb-title{
            text-align: center;
+           font-size: @fontC;
+           &:after{
+             position: absolute;
+             content:'';
+             top: 38px;
+             left: 116px;
+             border-top: 9px solid @colorM;
+             border-left: 12px solid transparent;
+             border-right: 12px solid transparent;
+           }
        }
        .weather{
            text-align: right;

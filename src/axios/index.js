@@ -8,7 +8,7 @@ export default class Axios{
            },function (err,response){
             //    if(response.status)
             //  debugger;
-             if(response.status == 'success'){
+             if(response.status === 'success'){
                  resolve(response);
              }else{
                  reject(response.message);
