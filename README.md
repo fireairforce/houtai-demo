@@ -3,17 +3,23 @@
 
 
 ## 配置
-对配置文件进行了暴露eject
-less-loader
-axios
-react-router4.0
-react流行的UI框架ant-design
+对配置文件进行了暴露 npm eject
+
+- less-loader
+- axios
+- react-router4.0
+- react流行的UI框架ant-design
 
 ## 运行方式
-先安装依赖
+- 安装依赖
 npm install 
-然后运行
+
+- 运行
 npm start
-打包
+
+- 打包
 npm build
+
+## 路由
+- 使用的是react-Router4.0 
 
