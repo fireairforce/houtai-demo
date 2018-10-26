@@ -63,9 +63,9 @@ export default class HighTable extends React.Component{
             dataIndex:'id' 
         },{
             title:'用户名',
-            key:'userName',
+            key:'username',
             width:80,
-            dataIndex:'userName'
+            dataIndex:'username'
         },{
             title:'性别',
             width:80,
@@ -131,10 +131,10 @@ export default class HighTable extends React.Component{
             dataIndex:'id' 
         },{
             title:'用户名',
-            key:'userName',
+            key:'username',
             width:80,
             fixed:'left',
-            dataIndex:'userName'
+            dataIndex:'username'
         },{
             title:'性别',
             width:80,
@@ -291,8 +291,8 @@ export default class HighTable extends React.Component{
             dataIndex:'id' 
         },{
             title:'用户名',
-            key:'userName',
-            dataIndex:'userName'
+            key:'username',
+            dataIndex:'username'
         },{
             title:'性别',
             dataIndex:'sex',
@@ -357,7 +357,7 @@ export default class HighTable extends React.Component{
             dataIndex:'id' 
         },{
             title:'用户名',
-            dataIndex:'userName'
+            dataIndex:'username'
         },{
             title:'性别',
             render(sex){//render用来处理字段的
