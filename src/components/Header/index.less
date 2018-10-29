@@ -6,6 +6,18 @@
         line-height: 60px;//让文字垂直方向居中
         padding: 0 20px;
         text-align: right;
+        .logo{
+            line-height: 60px;
+            text-align: left;
+            font-size: 18px;
+            img{
+                height:40px;
+                vertical-align: middle;
+            }
+            span{
+                margin-left:10px;
+            }
+        }
         a{
             margin-left: 20px;
             color:#f9c700;
@@ -45,5 +57,17 @@
               vertical-align: middle;//垂直方向上居中
           }
         }
+    }
+}
+.simple-page{
+    .header-top{
+        background: #1890ff;
+        color:@colorM;
+    }
+    .ant-form,
+    .ant-col-12,
+    .weather
+    {
+       display: none;
     }
 }
