@@ -139,7 +139,7 @@ export default class City extends React.Component{
                  }}
                  onOk={this.handleSubmit}
                >
-                <OpenCityForm wrappedComponentRef={(inst)=>{this.cityForm = inst;}}/>
+                  <OpenCityForm wrappedComponentRef={(inst)=>{this.cityForm = inst;}}/>
                </Modal>    
             </div>
         )

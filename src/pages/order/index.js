@@ -133,7 +133,7 @@ export default class Order extends React.Component{
              title:'结束时间',
              dataIndex:'end_time'
          },{
-             tilte:'订单金额',
+             title:'订单金额',
              dataIndex:'total_fee'
          },{
              title:'实付金额',

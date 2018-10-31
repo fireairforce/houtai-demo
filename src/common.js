@@ -8,17 +8,17 @@ import './style/common.less';
 export default class Common extends React.Component{
   render(){
     return(
-     <Fragment> 
-       <Row className="simple-page">
-          <Header menuType="second"/>
-       </Row>
-       <Row classname="content">
-           {this.props.children}
-       </Row>    
-       <Row>
-          <Footer />
-       </Row>    
-     </Fragment> 
+      <Fragment> 
+        <Row className="simple-page">
+            <Header menuType="second"/>
+        </Row>
+        <Row className="content">
+            {this.props.children}
+        </Row>    
+        <Row>
+            <Footer />
+        </Row>    
+      </Fragment> 
     )
   }
 } 

@@ -4,7 +4,7 @@ export default class Login extends React.Component{
 
     render(){
         return(
-            <div>this is login pages</div>
+            <div style={{marginLeft:"10%",marginTop:"5%"}}>this is login pages</div>
         )
     }
 }
