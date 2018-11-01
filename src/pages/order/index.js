@@ -9,6 +9,28 @@ export default class Order extends React.Component{
     params = {
         pages:1
     }
+    formList = [{
+        type:'SELECT',
+        label:'城市',
+        field:'city',
+        placeholder:'全部',
+        initialValue:'1',
+        width:100,
+        list:[{ id:'0',name:'全部'},{ id:'1',name:'北京'},{ id:'2',name:'秦皇岛'},{ id:'3',name:'天门'}]
+    },
+    {
+        type:'时间查询',
+    },
+    {
+        type:'SELECT',
+        label:'订单状态',
+        field:'order_status',
+        placeholder:'全部',
+        initialValue:'1',
+        width:100,
+        list:[{ id:'0',name:'全部'},{ id:'1',name:'进行中'},{ id:'2',name:'结束行程'}]
+    }
+]
     componentDidMount(){
        this.requestList();
     }
@@ -36,7 +58,7 @@ export default class Order extends React.Component{
        })
     }
     
-    onRowClick = (record,index) =>{
+    onRowClick = (record,index) => {
         let selectKey = [index];
         this.setState({
             selectedRowKeys:selectKey,
@@ -44,7 +66,7 @@ export default class Order extends React.Component{
         })
     }
 
-    openOrderDetail = () =>{
+    openOrderDetail = () => {
         let item = this.state.selectedItem;
         if(!item){
             Modal.info({
@@ -56,7 +78,7 @@ export default class Order extends React.Component{
         window.open(`/#/common/order/detail/${item.id}`,'_blank')
     }
     // 订单结束确认
-    handleConfirm = () =>{
+    handleConfirm = () => {
         let item = this.state.selectedItem;
         if(!item){
             Modal.info({
@@ -82,7 +104,7 @@ export default class Order extends React.Component{
         })
     }
     // 结束订单
-    handleConfirm = () =>{
+    handleConfirm = () => {
         let item = this.state.selectedItem;
         axios.ajax({
             url:'/order/finish_order',
@@ -91,7 +113,7 @@ export default class Order extends React.Component{
                     orderId: item.id
                 }
             }
-        }).then((res)=>{
+        }).then((res)=> {
             if(res.code === 0||res.code ==='0'){
                 message.success('订单结束成功')
                 this.setState({
@@ -214,7 +236,7 @@ class FilterForm extends React.Component{
                 </FormItem>
                 <FormItem label="订单状态">
                     {
-                        getFieldDecorator('op_mode')(
+                        getFieldDecorator('order_status')(
                             <Select
                                 style={{ width: 80 }}
                                 placeholder="全部"

@@ -1,3 +1,6 @@
+import React from 'react';
+import {Select} from 'antd';
+const Option = Select.Option;
 export default{
     formateDate(time){
         if(!time){
@@ -20,5 +23,14 @@ export default{
             showQuickJumper:true
         }
         return page
+    },
+    getOptionList(data){
+        if(!data){
+            return [];
+        }
+        let options = [<Option value="0" key="all_key">全部</Option>]
+        data.map((item)=>{
+             options.push(<Option value={item.id} key={item.id}>{item.name}</Option>);
+        })
     }
 }

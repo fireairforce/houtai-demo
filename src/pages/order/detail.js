@@ -51,7 +51,7 @@ export default class Detail extends React.Component{
     }
 
     // 绘制用户的行驶路线
-    drawBikeRoute= (positionList) =>{
+    drawBikeRoute = (positionList) =>{
         let map = this.map;
         let startPoint = '';
         let endPoint = '';
