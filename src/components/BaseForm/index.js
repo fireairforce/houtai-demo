@@ -1,5 +1,5 @@
 import React from 'react';
-import {Input,Select,Form,Button,Checkbox,Radio} from 'antd';
+import {Input,Select,Form,Button,Checkbox,Radio,DatePicker} from 'antd';
 import  Utils  from '../../utils/utils';
 
 const FormItem = Form.Item;
@@ -23,7 +23,29 @@ class FilterForm extends React.Component{
                 let initialValue = item.initialValue || '';
                 let placeholder = item.placeholder;
                 let width = item.width;
-                if(item.type==='INPUT'){
+                if(item.type==='时间查询'){
+                    const begin_time = <FormItem label="订单时间" key={field}>
+                    {
+                        getFieldDecorator('begin_time',{
+                            initialValue:initialValue
+                        })(
+                            <DatePicker showTime={true} placeholder={placeholder} format="YYYY-MM-DD HH:mm:ss"/>
+                        )
+                    }
+                 </FormItem>
+                 formItemList.push(begin_time);
+                 const end_time = <FormItem label="~" colon={false} key={field}>
+                 {
+                     getFieldDecorator('end_time',{
+                         initialValue:initialValue
+                     })(
+                         <DatePicker showTime={true} placeholder={placeholder} format="YYYY-MM-DD HH:mm:ss"/>
+                     )
+                 }
+              </FormItem>
+              formItemList.push(end_time);
+                }
+                else if(item.type==='INPUT'){
                     const INPUT = <FormItem label={label} key={field}>
                        {
                            getFieldDecorator([field],{
@@ -73,7 +95,7 @@ class FilterForm extends React.Component{
     }
     render(){
         return(
-            <Form>
+            <Form layout="inline">
                { this.initFormList() }
                <FormItem>
                    <Button type="primary" style={{margin:'0 20px'}} onClick={this.handleFilterSubmit}>查询</Button>
