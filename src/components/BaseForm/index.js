@@ -1,14 +1,21 @@
 import React from 'react';
 import {Input,Select,Form,Button,Checkbox,Radio} from 'antd';
-import { Utils } from '../../utils/utils';
+import  Utils  from '../../utils/utils';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
 
 class FilterForm extends React.Component{
+
+     handleFilterSubmit=()=>{
+         let fieldsValue = this.props.form.getFieldsValue();
+         this.props.filterSubmit(fieldsValue);
+     }
+
     initFormList = () =>{
-        const {getFiledDecorator} = this.props.form;
+        const {getFieldDecorator} = this.props.form;
         const formList = this.props.formList;
+        const formItemList = []; 
         if(formList && formList.length>0){
             formList.forEach((item,i)=>{
                 let label = item.label;
@@ -17,20 +24,21 @@ class FilterForm extends React.Component{
                 let placeholder = item.placeholder;
                 let width = item.width;
                 if(item.type==='INPUT'){
-                    const SELECT = <FormItem label={label} key={field}>
+                    const INPUT = <FormItem label={label} key={field}>
                        {
-                           getFiledDecorator([field],{
+                           getFieldDecorator([field],{
                                initialValue:initialValue
                            })(
                                <Input type="text" placeholder={placeholder}/>
                            )
                        }
                     </FormItem>
+                    formItemList.push(INPUT);
                 }
                 else if(item.type ==='SELECT'){
                     const SELECT = <FormItem label={label} key={field}>
                          {
-                             getFiledDecorator([field],{
+                             getFieldDecorator([field],{
                                  initialValue:initialValue,
                              })(
                             <Select
@@ -42,11 +50,12 @@ class FilterForm extends React.Component{
                              )
                          }
                     </FormItem>;
+                    formItemList.push(SELECT);
                 }
                else if(item.type==='CHECKBOX'){
-                const SELECT = <FormItem label={label} key={field}>
+                const CHECKBOX = <FormItem label={label} key={field}>
                 {
-                    getFiledDecorator([field],{
+                    getFieldDecorator([field],{
                         valuePropName:'checked',
                         initialValue:initialValue, //true | false 
                     })(
@@ -56,14 +65,20 @@ class FilterForm extends React.Component{
                     )
                 }
            </FormItem>;
-               } 
+             formItemList.push(CHECKBOX);
+        } 
             })
         }
+        return formItemList;
     }
     render(){
         return(
             <Form>
-             
+               { this.initFormList() }
+               <FormItem>
+                   <Button type="primary" style={{margin:'0 20px'}} onClick={this.handleFilterSubmit}>查询</Button>
+                   <Button onClick={this.reset}>重置</Button>
+                </FormItem>   
             </Form>    
         )
     }

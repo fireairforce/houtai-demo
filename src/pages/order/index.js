@@ -2,6 +2,7 @@ import React from 'react';
 import {Card,Button,Table,Form,Select,Modal,message,DatePicker} from 'antd';
 import axios from '../../axios';
 import Utils from '../../utils/utils';
+import BaseForm from '../../components/BaseForm';
 const FormItem = Form.Item;
 const Option = Select.Option;
 export default class Order extends React.Component{
@@ -34,6 +35,12 @@ export default class Order extends React.Component{
     componentDidMount(){
        this.requestList();
     }
+
+    handleFilter = (params) =>{
+         this.params = params;
+         this.requestList();
+    }
+
     requestList = () =>{
         let _this = this;
        axios.ajax({
@@ -173,7 +180,7 @@ export default class Order extends React.Component{
         return(
             <div>
               <Card>
-                  <FilterForm />
+                  <BaseForm formList={this.formList} filterSubmit={this.handleFilter}/>
               </Card>
              <Card style={{marginTop:"10px"}}>
                   <Button type="primary" onClick={this.openOrderDetail}>订单详情</Button>
