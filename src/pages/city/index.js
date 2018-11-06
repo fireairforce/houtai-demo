@@ -227,7 +227,7 @@ class OpenCityForm extends React.Component{
                 span:19
             }
         }
-         const { getFieldDecorator } = this.props.form;
+        const { getFieldDecorator } = this.props.form;
           return(
               <Form layout="horizontal">
                   <FormItem label="选择城市" {...formItemLayout}>
