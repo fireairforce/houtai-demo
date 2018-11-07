@@ -32,7 +32,7 @@ export default class NavLeft extends React.Component{
            <div>
               <div className="logo">
                  <img src="/assets/logo-ant.svg" alt=""/>
-                 <h1>ACM管理系统</h1>
+                 <h1>共享单车管理系统</h1>
               </div>
               <Menu 
                  theme="dark"
