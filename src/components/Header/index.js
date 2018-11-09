@@ -21,12 +21,12 @@ export default class Header extends React.Component{
    }
    //对jsonp插件进行一个封装
    getWeatherAPIData(){
-      let city='秦皇岛'; 
+      let city='北京'; 
       axios.jsonp({
-          url:'http://api.map.baidu.com/telematics/v3/weather?location='+encodeURIComponent(city)+'&output=json&ak=3p49MVra6urFRGOT9s8UBWr2'
+          url: 'http://api.map.baidu.com/telematics/v3/weather?location='+encodeURIComponent(city)+'&output=json&ak=9xxfjXBUcftkqi4xRLwkArPsTABzdaQl'
+         
       }).then((res)=>{
          if(res.status){
-            //  debugger;
              if(res.status === 'success'){
                  let data = res.results[0].weather_data[0];
                  this.setState({
