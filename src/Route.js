@@ -26,6 +26,7 @@ import User from './pages/user';
 import BikeMap from './pages/map/bikeMap';
 import Bar from './pages/echarts/bar';
 import Pie from './pages/echarts/pie';
+import Line from './pages/echarts/line';
 
 export default class IRouter extends React.Component{
     render(){
@@ -55,6 +56,7 @@ export default class IRouter extends React.Component{
                                 <Route path="/admin/bikeMap" component={BikeMap}/>
                                 <Route path="/admin/charts/bar" component={Bar}/>
                                 <Route path="/admin/charts/pie" component={Pie}/>
+                                <Route path="/admin/charts/line" component={Line}/>
                                 <Route path="/admin/rich" component={RichText} />
                                 <Route path="/admin/ui/notification" component={Notifications}/>
                                 <Route  component={NoMatch}/>
