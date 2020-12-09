@@ -108,7 +108,7 @@ export default class PremissionUser extends React.Component{
                 title:'使用状态',
                 dataIndex:'status',
                 render(status){
-                    return status == 1?'启用':'停用'
+                    return status === 1?'启用':'停用'
                 }
             },
             {
@@ -297,7 +297,7 @@ export default class Order extends React.Component{
                 params:{}
             }
         }).then((res)=>{
-            if(res.code == 0){
+            if(res.code === 0){
                 let list  = res.result.item_list.map((item,i)=>{
                     item.key = i;
                     return item;
@@ -416,7 +416,7 @@ export default class Order extends React.Component{
                     title: dataSource[i].user_name,
                     status: dataSource[i].status,
                 };
-                if (data.status == 1) {
+                if (data.status === 1) {
                     targetKeys.push(data.key);
                 }
                 mockData.push(data);
@@ -468,7 +468,7 @@ export default class Order extends React.Component{
                 title: '使用状态',
                 dataIndex: 'status',
                 render(status){
-                    if (status == 1) {
+                    if (status === 1) {
                         return "启用"
                     } else {
                         return "停用"

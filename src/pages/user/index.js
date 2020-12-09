@@ -51,7 +51,7 @@ export default class User extends React.Component{
     // 功能区操作
     handleOperate = (type) =>{
         let item = this.state.selectedItem;
-       if(type == 'create'){
+       if(type === 'create'){
           this.setState({
               type,
               title:'创建员工',
@@ -121,7 +121,7 @@ export default class User extends React.Component{
                 params:data
             }
         }).then((res)=>{
-            if(res.code == 0||res.code == '0'){
+            if(res.code === 0||res.code === '0'){
                 this.userForm.props.form.resetFields();
                 this.setState({
                     isVisible:false
@@ -144,7 +144,7 @@ export default class User extends React.Component{
                 title:'性别',
                 dataIndex:'sex',
                 render(sex){
-                    return sex == 1?'男':'女'
+                    return sex === 1?'男':'女'
                 }
               },
               {

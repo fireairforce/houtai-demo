@@ -35,7 +35,7 @@ export default class Axios{
         JsonP(options.url, {
             param: 'callback'
         }, function (err, response) {
-            // if (response.status == 'success') {
+            // if (response.status === 'success') {
             //     resolve(response);
             // } else {
             //     reject(response.messsage);
@@ -65,9 +65,9 @@ export default class Axios{
                 loading = document.getElementById('ajaxLoading');
                 loading.style.display = 'none';
             }
-            if (response.status == '200'||response.status == 200 ){
+            if (response.status === '200'||response.status === 200 ){
                 let res = response.data;
-                if (res.code == '0'||res.code == 0){
+                if (res.code === '0'||res.code === 0){
                     resolve(res);
                 }else{
                     Modal.info({
