@@ -20,6 +20,8 @@ npm start
 - 打包
 npm build
 
+访问 `http://localhost:3001/#/admin/home` 首页。
+
 ## 路由
 - 使用的是react-Router4.0 
 
